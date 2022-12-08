@@ -12,3 +12,4 @@ opt-level = 3
 [dependencies]
 bevy = {features = ["dynamic"] , version = "0.9.1" }
 bevy-inspector-egui = "*"
+smooth-bevy-cameras = "*"
