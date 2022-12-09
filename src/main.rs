@@ -1,11 +1,14 @@
-use bevy::prelude::*;
+mod lib;
 
+use bevy::prelude::*;
+use lib::{movement, Movable};
 
 fn main() {
 	App::new()
 		.insert_resource(ClearColor(Color::rgb(0.02,0.0,0.02)))
 		.add_startup_system(spawn_basic_scene)
 		.add_startup_system(spawn_camera)
+		.add_system(movement)
 		.add_plugins(DefaultPlugins.set(WindowPlugin {
 			window: WindowDescriptor {
 				title: "Better than minecraft hi".to_string(),
@@ -19,12 +22,13 @@ fn main() {
 		.run();
 }
 
-
 fn spawn_camera(mut commands: Commands) {
-	commands.spawn(Camera3dBundle {
+	commands.spawn((Camera3dBundle {
 		transform: Transform::from_xyz(-2.0, 1.8, 6.0).looking_at(Vec3::ZERO, Vec3::Y),
 		..default()
-	});
+	},
+	Movable,
+	));
 }
 
 fn spawn_basic_scene(
@@ -43,7 +47,8 @@ fn spawn_basic_scene(
 		material: materials.add(Color::rgb(0.8, 0.7, 0.6).into()),
 		transform: Transform::from_xyz(0.0, 0.5, 0.0),
 		..default()
-	});
+		}
+	);
 	// light
 	commands.spawn(PointLightBundle {
 		point_light: PointLight {
