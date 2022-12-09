@@ -8,7 +8,7 @@ fn main() {
 		.add_startup_system(spawn_camera)
 		.add_plugins(DefaultPlugins.set(WindowPlugin {
 			window: WindowDescriptor {
-				title: "Better than minecraft hi".to_string(),
+				title: "Better than minecraft".to_string(),
 				width: 1280.0,
 				height: 720.0,
 				resizable: false,
