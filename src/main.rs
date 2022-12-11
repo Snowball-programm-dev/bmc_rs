@@ -1,7 +1,6 @@
-mod lib;
-
 use bevy::prelude::*;
-use lib::{movement, Movable};
+mod lib;
+use lib::input::*;
 
 fn main() {
 	App::new()
@@ -9,6 +8,7 @@ fn main() {
 		.add_startup_system(spawn_basic_scene)
 		.add_startup_system(spawn_camera)
 		.add_system(movement)
+		.add_system(grab_mouse)
 		.add_plugins(DefaultPlugins.set(WindowPlugin {
 			window: WindowDescriptor {
 				title: "Better than minecraft hi".to_string(),

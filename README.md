@@ -1,1 +1,1 @@
-# Better than microsoft = better than minecraft
+## Better than microsoft = better than minecraft
