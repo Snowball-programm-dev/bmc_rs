@@ -1,6 +1,7 @@
 use bevy::prelude::*;
 mod lib;
 use lib::input::*;
+use lib::world::test;
 
 fn main() {
 	App::new()
@@ -19,6 +20,7 @@ fn main() {
 			},
 			..default()
 		}))
+		.add_system(test)
 		.run();
 }
 
